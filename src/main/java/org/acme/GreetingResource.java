@@ -11,6 +11,6 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "Hello i was deployed thanks to CI/CD\n";
+        return "Hello I was deployed thanks to CI/CD\n";
     }
 }
