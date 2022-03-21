@@ -21,7 +21,5 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Copy Jar into the bin folder
-      run: sudo cp -r actions-runner/_work/quarkus-aws/quarkus-aws/target/quarkus-app bin/
     - name: Launch instance
-      run: sudo kill -9 `sudo lsof -t -i:8080` & sudo java -jar bin/quarkus-app/quarkus-run.jar &
+      run: sudo kill -9 `sudo lsof -t -i:8080` & sudo java -jar actions-runner/_work/quarkus-aws/quarkus-aws/target/quarkus-app/quarkus-run.jar &
