@@ -19,7 +19,9 @@ jobs:
         java-version: '11'
         distribution: 'adopt-hotspot'
         cache: maven
+    - name: Kill old instance
+      run: sudo kill -9 `sudo lsof -t -i:8080`
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Launch instance
-      run: sudo kill -9 `sudo lsof -t -i:8080` & sudo java -jar actions-runner/_work/quarkus-aws/quarkus-aws/target/quarkus-app/quarkus-run.jar &
+      run: sudo java -jar actions-runner/_work/quarkus-aws/quarkus-aws/target/quarkus-app/quarkus-run.jar &
