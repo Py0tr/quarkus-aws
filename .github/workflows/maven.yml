@@ -20,7 +20,7 @@ jobs:
         distribution: 'adopt-hotspot'
         cache: maven
     - name: Kill old instance
-      run: sudo kill -9 `sudo lsof -t -i:8080`
+      run: if [`sudo lsof -t -i:8080` > 0 ]; then sudo kill -9 `sudo lsof -t -i:8080`; fi
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Launch instance
